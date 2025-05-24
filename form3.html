@@ -1,5 +1,5 @@
 <!Doctype html>
-<html lan="en-us">
+<html lang="en-us">
   <head>
     <title>Form</title>
     <meta charset="UTF-8" />
@@ -93,6 +93,7 @@
         border-radius: 50%;
         border: 2px solid #ff9a9c;
         margin-right: 0.5em;
+        margin-left: 0;
       }
       .indicator.selected{
         background-color: #ff9a9c;
@@ -233,7 +234,7 @@
           width: fit-content;
         }
         section >div:nth-child(1) {
-          display: flex !important;
+          display: flex ;
         }
       }
       @media screen and (min-width: 950px) {
@@ -257,7 +258,7 @@
           <form class="w-100">
             <h2 class="t-center">Sign Up</h2>
             <div class="input-field d-flex fj-c fa-c f-row mt-st">
-              <span class="indicator"></span>
+              <label for="email" class="indicator"></label>
               <input 
                 type="email" 
                 name="email" 
@@ -270,7 +271,7 @@
                 />
             </div>
             <div class="input-field d-flex fj-c fa-c f-row">
-              <span class="indicator"></span>
+              <label for="password" class="indicator"></label>
               <input 
                 type="password" 
                 name="password" 
@@ -283,7 +284,7 @@
                 />
             </div>
             <div class="input-field d-flex fj-c fa-c f-row">
-              <span class="indicator"></span>
+              <label for="cpassword" class="indicator"></label>
               <input 
                 type="password" 
                 name="cpassword" 
