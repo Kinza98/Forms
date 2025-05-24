@@ -1,0 +1,187 @@
+<!Doctype html>
+<html lan="en-us">
+  <head>
+    <title>Form</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="kinza" />
+    <meta name="description" content="a form" />
+    <meta name="keywords" content="html, css, form" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .d-flex{ display: flex;}
+      .fj-c{ justify-content: center;}
+      .fa-c{ align-items: center;}
+      .f-col{flex-direction: column;}
+      .f-row{ flex-direction: row;}
+      .fw{ flex-wrap: wrap;}
+      .wv-100{ width: 100vw;}
+      .hv-100{ height: 100vh;}
+      .w-100{ width: 100%;}
+      .h-100{ height: 100%;}
+      .mb-stm{margin-bottom: 1.2em;}
+      .mt-st{ margin-top: 1.2em;}
+      .t-center{ text-align: center;}
+      .relative{ position: relative;}
+      main{
+        background-color: #a34848;
+        font-family: "Noto Sans KR", sans-serif;
+        padding: 2em;
+      }
+      h2{ font-size: 1.2rem; color: #a34848;}
+      section{
+        background: #fff;
+        padding: 1em;
+        border-radius: 15px;
+        box-shadow: 0px 5px 30px #302222;
+        min-width: 250px
+      }
+      input{
+        padding: 16px 8px 8px 8px;
+        border-radius: 5px;
+        box-shadow: none;
+        outline: none;
+        border: none;        
+        border: 1px solid black;
+        font-size: 0.7rem;
+      }
+      label{
+        padding: 10px 5px;
+        font-size: 0.8rem;
+        font-family: "Noto Sans KR", sans-serif;
+        color: rgb(90, 90, 90);
+      }
+      .relative label{
+        position: absolute;
+        top: 9px;
+        left: 12px;
+        display: inline-block;
+        padding: 0;
+      }
+      .labelAnimate label{
+        top: -9px;
+        font-size: 0.7rem;
+        background-color: #ffffff;
+        animation: labelMove 0.05s ease-in;
+        color: #a34848;
+      }
+      input[type="checkbox"]:checked {
+        accent-color: #a34848; /* changes checkbox color in modern browsers */
+      }
+      .labelAnimate input{
+        border-color: #a34848;
+      }
+      @keyframes labelMove {
+        from {
+          top: 9px;
+          font-size: 1rem;
+          background-color: transparent;
+          color: rgb(90, 90, 90);
+        }
+        to {
+          top: -9px;
+          font-size: 0.8rem;
+          background-color: white;
+          color: #a34848;
+        }
+      }
+      button{
+        outline: none;
+        box-shadow: none;
+        max-width: 100px;
+        padding: 8px 25px;
+        background-color: #a34848;
+        color: white;
+        border-radius: 5px;
+        margin-top: 0.5em;
+        margin-left: auto;
+        border: 1px solid #a34848;
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 0.7rem;
+      }
+      button:hover{
+        background-color: white;
+        color: #a34848;
+        cursor: pointer;
+      }
+      @media screen and (min-width: 500px) {
+        section{
+          min-width: 400px;
+          padding: 2em;
+        }
+        input, button, label{
+          font-size: 1rem;
+        }
+        h2{
+          font-size: 1.7rem;
+        }
+        input{
+          padding: 16px 15px 10px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="d-flex fj-c fa-c wv-100 hv-100">
+      <section class="">
+        <form action="" class="d-flex fj-c f-col w-100 h-100">
+          <h2 class="t-center">Login</h2>
+          <div class="relative mt-st">
+              <label for="email">Email</label>
+              <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                class="w-100"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                onfocus="focusIn(event)"
+                onblur="focusOut(event)"
+                required
+              />
+          </div>
+          <div class="relative mt-st">
+            <label for="password">Password</label>
+            <input 
+            type="password" 
+            name="password" 
+            id="password" 
+            class="w-100"
+            pattern="^[a-zA-Z0-9._]{8,}$"
+            title="at least 8 characters long"
+            onfocus="focusIn(event)"
+            onblur="focusOut(event)"
+            required
+            />
+          </div>
+          <div class="d-flex">
+            <input type="checkbox" name="show" id="show">
+            <label for="show">Show Password</label>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+    <script>
+      document.getElementById("show").addEventListener("click", function(e){
+        if(e.target.checked)
+          document.getElementById("password").type = "text";
+        else
+          document.getElementById("password").type = "password";
+      })
+      function focusIn(e){
+        e.target.parentElement.classList.add("labelAnimate")
+      }
+      function focusOut(e){
+        if(e.target.value == "")
+        e.target.parentElement.classList.remove("labelAnimate")
+      }
+    </script>
+  </body>
+</html>
