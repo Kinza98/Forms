@@ -1,0 +1,323 @@
+<!Doctype html>
+<html lan="en-us">
+  <head>
+    <title>Form</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="kinza" />
+    <meta name="description" content="a form" />
+    <meta name="keywords" content="html, css, form" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap" rel="stylesheet">
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .d-flex{ display: flex;}
+      .fj-c{ justify-content: center;}
+      .fa-c{ align-items: center;}
+      .f-col{flex-direction: column;}
+      .f-row{ flex-direction: row;}
+      .fw{ flex-wrap: wrap;}
+      .f-1{
+        flex: 1;
+      }
+      .wv-100{ width: 100vw;}
+      .hv-100{ min-height: 100vh;}
+      .w-100{ width: 100%;}
+      .h-100{ height: 100%;}
+      .mb-stm{margin-bottom: 1.2em;}
+      .mt-st{ margin-top: 1.2em;}
+      .t-center{ text-align: center;}
+      .relative{ position: relative;}
+      .w-50{width: 100%;}
+      .sides-none{ box-shadow: none; outline: none; border: none;}
+      .bg-white{
+        background-color: white;
+      }
+      body{
+        overflow-x: hidden;
+      }
+      main{
+        background: #fad9d2;
+        /* background: linear-gradient(90deg,rgba(163, 72, 72, 1) 1%, rgba(6, 102, 96, 1) 50%, rgba(163, 72, 72, 1) 100%); */
+        font-family: "Noto Sans KR", sans-serif;
+        padding: 2em;
+        color: grey;
+      }
+      h2, a{
+        color: #ff9a9c;
+        text-decoration: none;
+      }
+      section{
+        width: 100%;
+        min-height: 90vh;
+        padding: 0;
+        padding-right: 1em;
+        box-shadow: 5px 5px 15px pink;
+        border-top: 9px solid #ff9a9c;
+      }
+      section >div:nth-child(1){
+        border-left: 9px solid #ff9a9c;
+        min-height: 300px;
+        display: none;
+      }
+      .form-container{
+        min-width: 200px;
+        padding: 1em;
+        background-color: white;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+        border-left: 9px solid #ff9a9c;
+      }
+      form input{
+        font-size: 0.8rem;
+        border-radius: 25px;
+        background-color: #fad9d25c;
+        padding: 1.2em 1.5em;
+        text-transform: uppercase;
+        letter-spacing: 0.05rem;
+        width: 100%;
+      }
+      .input-field{
+        margin-bottom: 1.5em;
+      }
+      .indicator{
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 2px solid #ff9a9c;
+        margin-right: 0.5em;
+      }
+      .indicator.selected{
+        background-color: #ff9a9c;
+      }
+      button{
+        background-color: #ff9a9c;
+        color: white;
+        border-radius: 25px;
+        padding: 0.8em 2em;
+        font-size: 1rem;
+        border: 2px solid #ff9a9c !important;
+        width: 100%;
+      }
+      button:hover{
+        background-color: transparent;
+        color: #ff9a9c;
+        border: 2px solid #ff9a9c;
+        cursor: pointer;
+      }
+      input[type="checkbox"]{
+        max-width: fit-content;
+      }
+      input[type="checkbox"]:checked {
+        accent-color: #ff9a9c; /* changes checkbox color in modern browsers */
+      }
+      label{
+        color: grey;
+        margin-left: 0.5em;
+        font-size: 0.8rem;
+      }
+      .section >div:nth-child(1) {
+        display: none ;
+      }
+      /* img{
+        width: 100%;
+        max-width: 150px;
+        position: absolute;
+        top: 0;
+        left: 20%;
+      }
+      img:nth-child(1){
+        top: 0;
+        left: 0;
+        transform: rotate(-17deg) translate(52px,39px);
+        z-index: 1;
+      } */
+      /* .boundary{
+        width: 150px;
+        height: 150px;
+        border: 14px double #cdb3e5;
+        margin: auto;
+        transform: rotate(45deg);
+      } */
+      .key{
+        width: 80px;
+        height: 80px;
+        border: 1.7em solid #ff9a9c;
+        margin: auto;
+        border-radius: 50%;
+        transform: rotate(45deg);
+        animation: keyHang 1s infinite;
+      }
+      .key::after{
+        content: "";
+        position: absolute;
+        top: 200%;
+        width: 18px;
+        height: 148px;
+        border-bottom-radius: 20px;
+        background: #ff9a9c;
+      }
+      .key::before{
+        content: "";
+        position: absolute;
+        border-top: 12px solid #ff9a9c;
+        border-bottom: 12px solid #ff9a9c;
+        border-radius: 2px;
+        bottom: -10em;
+        width: 47px;
+        height: 17px;
+      }
+
+      @keyframes keyHang {
+        0%{
+          transform: rotate(45deg);
+        }
+        50%{
+          transform: rotate(-45deg);
+        }        
+        100%{
+          transform: rotate(45deg);
+        }
+      }
+      .left{
+        max-width: 300px;
+        max-height: 300px;
+      }
+      .sign-style{
+        font-family: "Playwrite DK Loopet", cursive;
+        position: absolute;
+        font-size: 2em;
+        letter-spacing: rem;
+        transform: scale(2.2, 2.2) rotate(-16deg);
+        top: 50%;
+        color: #fad9d2;
+        text-shadow: 1px 1px #cdb3e5;
+        right: 0;
+        left: 0;
+        text-align: center;
+        display: none;
+      }
+
+      .already{
+        font-size: 0.8rem;
+        display: block;
+        margin-top: 0.5em;
+      }
+      @media screen and (min-width: 400px) {
+        .form-container{
+          min-width: 200px;
+        }
+        section >div:nth-child(1) {
+          /* min-height: 225px; */
+        }        
+      }
+      @media screen and (min-width: 775px) {
+        .w-50{
+          width: 50%;
+        }
+        .form-container{
+          min-width: 200px;
+          border-left: none;
+        }
+        section{
+          width: 700px;
+        }
+        button{
+          width: fit-content;
+        }
+        section >div:nth-child(1) {
+          display: flex !important;
+        }
+      }
+      @media screen and (min-width: 950px) {
+        section{
+          width: 900px;
+          padding-right: 1.5em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="d-flex fj-c fa-c wv-100  hv-100">
+      <section class="d-flex f-row fj-c fw bg-white">
+        <div class="w-50 d-flex fa-c fj-c bg-white">
+          <div class="relative w-100 h-100 left mt-st">
+            <div class="key"></div>
+            <span class="sign-style">Welcome</span>
+          </div>
+        </div>
+        <div class="form-container w-50 d-flex fa-c ">
+          <form class="w-100">
+            <h2 class="t-center">Sign Up</h2>
+            <div class="input-field d-flex fj-c fa-c f-row mt-st">
+              <span class="indicator"></span>
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Email"
+                id="email"
+                class="sides-none"
+                onfocus="focusOn(event)"
+                onblur="focusOff(event)"
+                required
+                />
+            </div>
+            <div class="input-field d-flex fj-c fa-c f-row">
+              <span class="indicator"></span>
+              <input 
+                type="password" 
+                name="password" 
+                placeholder="Password"
+                id="password"
+                class="sides-none"
+                onfocus="focusOn(event)"
+                onblur="focusOff(event)"
+                required
+                />
+            </div>
+            <div class="input-field d-flex fj-c fa-c f-row">
+              <span class="indicator"></span>
+              <input 
+                type="password" 
+                name="cpassword" 
+                placeholder="Confirm Password"
+                id="cpassword"
+                class="sides-none"
+                onfocus="focusOn(event)"
+                onblur="focusOff(event)"
+                required
+                />
+            </div>
+            <div class="d-flex f-row">
+              <input 
+                type="checkbox" 
+                name="terms" 
+                id="terms"
+                class="f-1"
+                required
+              >
+              <label for="terms">I accept <a href="#"> Terms and Conditions </a></label>
+            </div>
+            <button type="submit" class="sides-none mt-st w-100">Submit</button>
+            <span class="already t-center" >Already have an account?<a href="#">Login</a></span>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script>
+      function focusOn(e){
+        e.target.parentElement.children[0].classList.add("selected")
+      }
+      function focusOff(e){
+        e.target.parentElement.children[0].classList.remove("selected")
+      }
+    </script>
+  </body>
+</html>
