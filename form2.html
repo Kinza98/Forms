@@ -31,7 +31,8 @@
       .t-center{ text-align: center;}
       .relative{ position: relative;}
       main{
-        background-color: #a34848;
+        background: #A34848;
+        background: linear-gradient(90deg,rgba(163, 72, 72, 1) 1%, rgba(6, 102, 96, 1) 50%, rgba(163, 72, 72, 1) 100%);
         font-family: "Noto Sans KR", sans-serif;
         padding: 2em;
       }
@@ -44,7 +45,7 @@
         min-width: 250px
       }
       input{
-        padding: 16px 8px 8px 8px;
+        padding: 10px 8px 8px 8px;
         border-radius: 5px;
         box-shadow: none;
         outline: none;
@@ -60,7 +61,7 @@
       }
       .relative label{
         position: absolute;
-        top: 9px;
+        top: 5px;
         left: 12px;
         display: inline-block;
         padding: 0;
@@ -121,6 +122,13 @@
         }
         h2{
           font-size: 1.7rem;
+        }
+        .relative label{
+          top: 9px;
+        }
+        .labelAnimate label{
+          top: -9px;
+          font-size: 0.8rem;
         }
         input{
           padding: 16px 15px 10px 15px;
