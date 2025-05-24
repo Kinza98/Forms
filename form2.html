@@ -27,7 +27,7 @@
       .w-100{ width: 100%;}
       .h-100{ height: 100%;}
       .mb-stm{margin-bottom: 1.2em;}
-      .mb-st{ margin-bottom: 0.7em;}
+      .mt-st{ margin-top: 1.2em;}
       .t-center{ text-align: center;}
       .relative{ position: relative;}
       main{
@@ -73,28 +73,31 @@
         font-size: 0.7rem;
         background-color: #ffffff;
         animation: labelMove 0.05s ease-in;
+        color: #a34848;
       }
       @keyframes labelMove {
         from {
           top: 0px;
           font-size: 1rem;
           background-color: transparent;
+          color: rgb(90, 90, 90);
         }
         to {
           top: -10px;
           font-size: 0.7rem;
           background-color: white;
+          color: #a34848;
         }
       }
       button{
         outline: none;
         box-shadow: none;
         max-width: 100px;
-        padding: 10px 20px;
+        padding: 8px 25px;
         background-color: #a34848;
         color: white;
         border-radius: 5px;
-        margin-top: 1.5em;
+        margin-top: 0.5em;
         margin-left: auto;
         border: 1px solid #a34848;
         font-family: "Noto Sans KR", sans-serif;
@@ -105,6 +108,9 @@
         color: #a34848;
         cursor: pointer;
       }
+      /* input:focus{
+        cursor: pointer;
+      } */
       @media screen and (min-width: 500px) {
         section{
           min-width: 400px
@@ -122,8 +128,8 @@
     <main class="d-flex fj-c fa-c wv-100 hv-100">
       <section class="">
         <form action="" class="d-flex fj-c f-col w-100 h-100">
-          <h2 class="mb-st t-center">Login</h2>
-          <div class="relative mb-st">
+          <h2 class="t-center">Login</h2>
+          <div class="relative mt-st">
               <label for="email">Email</label>
               <input 
                 type="email" 
@@ -136,7 +142,7 @@
                 required
               />
           </div>
-          <div class="relative mb-st">
+          <div class="relative mt-st">
             <label for="password">Password</label>
             <input 
             type="password" 
