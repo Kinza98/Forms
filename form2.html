@@ -27,16 +27,17 @@
       .w-100{ width: 100%;}
       .h-100{ height: 100%;}
       .mb-stm{margin-bottom: 1.2em;}
-      .mb-st{ margin-bottom: 0.2em;}
+      .mb-st{ margin-bottom: 0.7em;}
       .t-center{ text-align: center;}
+      .relative{ position: relative;}
       main{
-        background-color: grey;
+        background-color: #a34848;
         font-family: "Noto Sans KR", sans-serif;
         padding: 2em;
       }
-      h2{ font-size: 1.2rem;}
+      h2{ font-size: 1.2rem; color: #a34848;}
       section{
-        background: #ececec;
+        background: #fff;
         padding: 2em;
         border-radius: 10px;
         box-shadow: 2px 2px 2px grey;
@@ -45,12 +46,12 @@
         min-width: 250px
       }
       input{
-        padding: 10px;
+        padding: 10px 15px;
         border-radius: 5px;
         box-shadow: none;
         outline: none;
         border: none;        
-        border: 3px inset #e0e0e080;
+        border: 1px solid black;
         font-size: 0.7rem;
       }
       label{
@@ -59,23 +60,49 @@
         font-family: "Noto Sans KR", sans-serif;
         color: rgb(90, 90, 90);
       }
+      .relative label{
+        position: absolute;
+        top: 3px;
+        left: 10px;
+        display: inline-block;
+        padding: 4px 10px;
+        /* background-color: white; */
+      }
+      .labelAnimate label{
+        top: -10px;
+        font-size: 0.7rem;
+        background-color: #ffffff;
+        animation: labelMove 0.05s ease-in;
+      }
+      @keyframes labelMove {
+        from {
+          top: 0px;
+          font-size: 1rem;
+          background-color: transparent;
+        }
+        to {
+          top: -10px;
+          font-size: 0.7rem;
+          background-color: white;
+        }
+      }
       button{
         outline: none;
         box-shadow: none;
         max-width: 100px;
         padding: 10px 20px;
-        background-color: black;
+        background-color: #a34848;
         color: white;
         border-radius: 5px;
         margin-top: 1.5em;
         margin-left: auto;
-        border: 1px solid black;
+        border: 1px solid #a34848;
         font-family: "Noto Sans KR", sans-serif;
         font-size: 0.7rem;
       }
       button:hover{
         background-color: white;
-        color: black;
+        color: #a34848;
         cursor: pointer;
       }
       @media screen and (min-width: 500px) {
@@ -96,25 +123,33 @@
       <section class="">
         <form action="" class="d-flex fj-c f-col w-100 h-100">
           <h2 class="mb-st t-center">Login</h2>
-            <label for="email">Email</label>
-            <input 
-              type="email" 
-              name="email" 
-              id="email" 
-              class="mb-st"
-              pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-              required
-            />
+          <div class="relative mb-st">
+              <label for="email">Email</label>
+              <input 
+                type="email" 
+                name="email" 
+                id="email" 
+                class="w-100"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                onfocus="focusIn(event)"
+                onblur="focusOut(event)"
+                required
+              />
+          </div>
+          <div class="relative mb-st">
             <label for="password">Password</label>
             <input 
             type="password" 
             name="password" 
             id="password" 
-            class="mb-st"
+            class="w-100"
             pattern="^[a-zA-Z0-9._]{8,}$"
             title="at least 8 characters long"
+            onfocus="focusIn(event)"
+            onblur="focusOut(event)"
             required
             />
+          </div>
           <div class="d-flex">
             <input type="checkbox" name="show" id="show">
             <label for="show">Show Password</label>
@@ -130,6 +165,12 @@
         else
           document.getElementById("password").type = "password";
       })
+      function focusIn(e){
+        e.target.parentElement.classList.add("labelAnimate")
+      }
+      function focusOut(e){
+        e.target.parentElement.classList.remove("labelAnimate")
+      }
     </script>
   </body>
 </html>
